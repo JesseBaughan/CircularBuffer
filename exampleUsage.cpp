@@ -15,18 +15,21 @@ int main(int argc, char *argv[])
 
     // Put some data in the buffers
     floatBuffer.put(69.69);
-    uint8_t poo = 16;
-    intBuffer.put(poo);
+    intBuffer.put(16);
 
+    // Get data from the buffers
     float value = 0;
+    uint8_t value2 = 0;
     floatBuffer.get(value);
+    intBuffer.get(value2);
+
+    // Print the value we got from the buffers
+    std::cout << "intBuffer value: " << unsigned(value2) << std::endl;
     std::cout << "floatBuffer value: " << value << std::endl;
 
-    uint8_t value2 = 0;
-    intBuffer.get(value2);
-    std::cout << "intBuffer value: " << unsigned(value2) << std::endl;
-
     //Check that the buffer is now empty
+    if(floatBuffer.empty()) std::cout << "floatBuffer empty" << std::endl;
+    if(intBuffer.empty()) std::cout << "intBuffer empty" << std::endl;
 
     return 0;
 }
